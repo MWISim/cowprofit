@@ -190,7 +190,7 @@ const simResult = calculator.simulate(resolved, target, shopping.itemLevel);
 
 // Calculate profit from simResult + resolved.sellPrice
 const sellPrice = resolved.sellPrice;
-const marketFee = sellPrice * 0.02;
+const marketFee = sellPrice * 0.05;
 const profit = sellPrice - simResult.totalCost;
 // ... etc
 ```

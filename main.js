@@ -923,7 +923,7 @@ function renderGearPanel() {
         </div>
         <div class="gear-section">
             <h5>💎 Charm</h5>
-            <div class="gear-row"><input type="checkbox" class="gear-check" id="gear-charm-on"${c.charmTier && c.charmTier !== 'none' ? ' checked' : ''}><span class="label">Charm</span>${selectOpts('gear-charm-tier', charmTiers.filter(t=>t!=='none').map(t => [t, t.charAt(0).toUpperCase() + t.slice(1)]), c.charmTier === 'none' ? 'advanced' : c.charmTier)}${numInput('gear-charm-level', c.charmLevel, 0, 20)}</div>
+            <div class="gear-row"><input type="checkbox" class="gear-check" id="gear-charm-on"${c.charmTier && c.charmTier !== 'none' ? ' checked' : ''}><span class="label">Charm</span>${selectOpts('gear-charm-tier', charmTiers.filter(t => t !== 'none').map(t => [t, t.charAt(0).toUpperCase() + t.slice(1)]), c.charmTier === 'none' ? 'advanced' : c.charmTier)}${numInput('gear-charm-level', c.charmLevel, 0, 20)}</div>
         </div>
         <div class="gear-section">
             <h5>📈 Global Buffs</h5>
@@ -1333,8 +1333,8 @@ function computeSessionDisplay(session, finalLevelOverride) {
         adjustedProtCost = adjustedProtsUsed * (enhanceProfit.protPrice || 0);
     }
 
-    // Calculate fee (2%) and profit
-    const fee = Math.floor(salePrice * 0.02);
+    // Calculate fee (5%) and profit
+    const fee = Math.floor(salePrice * 0.05);
     const netSale = salePrice - fee;
     const failureCost = enhanceProfit.totalMatCost + adjustedProtCost + totalTeaCost;
 
@@ -2474,8 +2474,8 @@ function calculateEnhanceSessionProfit(session) {
     const estimatedSaleSourceIcon = pb.estimatedSale.sourceIcon;
     const estimatedSaleLevel = pb.estimatedSale.level;
 
-    // Fee is 2% of sale price (will be recalculated with actual sale in render)
-    const fee = Math.floor(revenue * 0.02);
+    // Fee is 5% of sale price (will be recalculated with actual sale in render)
+    const fee = Math.floor(revenue * 0.05);
     const netSale = revenue - fee;
     const profit = netSale - totalCost;
 
@@ -3874,17 +3874,17 @@ function renderDetailRow(r) {
 // Main render
 function renderTable() {
     const data = allResults || [];
-    
+
     // Filter by level (multi-select; empty set = all)
-    let filtered = activeLevels.size === 0 ? data : 
+    let filtered = activeLevels.size === 0 ? data :
         data.filter(r => activeLevels.has(r.target_level));
-    
+
     // Filter by cost
     filtered = filtered.filter(r => costFilters[getCostBucket(r.totalCost)]);
-    
+
     // Filter out instant enhances
-    if (hideInstant) filtered = filtered.filter(r => r.timeDays > 1/48); // > 30 min
-    
+    if (hideInstant) filtered = filtered.filter(r => r.timeDays > 1 / 48); // > 30 min
+
     // Filter manually hidden rows
     filtered = filtered.filter(r => !hiddenRows.has(r.item_hrid + '_' + r.target_level));
 
@@ -3894,7 +3894,7 @@ function renderTable() {
         const sp = r.sellPrices?.[sellMode];
         const sellPrice = sp ? sp.price : 0;
         const profit = sellPrice - r.totalCost;
-        const marketFee = sellPrice * 0.02;
+        const marketFee = sellPrice * 0.05;
         const profitAfterFee = profit - marketFee;
         const roi = r.matCost > 0 ? (profit / r.matCost) * 100 : 0;
         const roiAfterFee = r.matCost > 0 ? (profitAfterFee / r.matCost) * 100 : 0;
@@ -3955,7 +3955,7 @@ function renderTable() {
     const bestXpDay = filtered.length ? Math.max(...filtered.map(r => r.xpPerDay)) : 0;
     document.getElementById('stat-total').textContent = totalWithAnySell;
     document.getElementById('stat-matching').textContent = filtered.length;
-    
+
     // Update unhide button
     const unhideBtn = document.getElementById('btn-unhide');
     if (unhideBtn) {

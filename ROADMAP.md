@@ -10,7 +10,7 @@
 - [x] Cost filters (<100M, 100-500M, etc.)
 - [x] Level filters (+8, +10, +12, +14)
 - [x] Super pessimistic mode (-Mat Loss toggle)
-- [x] 2% market fee toggle
+- [x] 5% market fee toggle
 - [x] Gear dropdown showing player stats
 - [x] Market update history dropdown
 - [x] Expandable detail rows with full cost breakdown

@@ -720,8 +720,8 @@ class EnhancementCalculator:
         if sell_price <= 0:
             return None
         
-        # Market fee is 2% of sell price
-        market_fee = sell_price * 0.02
+        # Market fee is 5% of sell price
+        market_fee = sell_price * 0.05
         
         profit = sell_price - result['total_cost']
         profit_after_fee = profit - market_fee

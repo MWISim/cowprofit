@@ -12,7 +12,7 @@ Find the most profitable item enhancements in [Milky Way Idle](https://www.milky
 - **Three pricing modes:** Pessimistic (bid), Midpoint, Optimistic (ask)
 - **ROI-based ranking:** Profit per day normalized by investment
 - **Super Pessimistic toggle:** Includes 11.8% loss on leftover materials
-- **Market fee toggle:** 2% fee on/off for comparison
+- **Market fee toggle:** 5% fee on/off for comparison
 
 ### Price Tracking
 - **Price Age column:** How long the current sell price has lasted (proxy for market depth)

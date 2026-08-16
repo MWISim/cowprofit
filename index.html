@@ -127,21 +127,21 @@
             padding: 2px 0;
         }
 
-        .gear-row > .gear-check,
-        .gear-row > .gear-cb-spacer {
+        .gear-row>.gear-check,
+        .gear-row>.gear-cb-spacer {
             grid-column: 1;
         }
 
-        .gear-row > .label {
+        .gear-row>.label {
             grid-column: 2;
         }
 
-        .gear-row > .gear-select,
-        .gear-row > .gear-note {
+        .gear-row>.gear-select,
+        .gear-row>.gear-note {
             grid-column: 3;
         }
 
-        .gear-row > .gear-input {
+        .gear-row>.gear-input {
             grid-column: 4;
         }
 
@@ -1953,7 +1953,7 @@
                 </div>
             </div>
             <div class="fee-group">
-                <button class="mode-btn active" onclick="toggleFee()" id="btn-fee">-2% Fee</button>
+                <button class="mode-btn active" onclick="toggleFee()" id="btn-fee">-5% Fee</button>
             </div>
         </div>
 
@@ -2025,8 +2025,11 @@
 
             <span class="filter-divider" style="align-self: center; margin: 0 8px;">|</span>
 
-            <button class="filter-btn active" id="btn-craft-items" onclick="toggleCraftItems()" title="When active, the base item can be sourced via crafting if cheaper than market">Craft Items</button>
-            <button class="filter-btn active" id="btn-craft-subs" onclick="toggleCraftSubcomponents()" title="When active, crafting ingredients are priced as min(market, craft cost)">Craft Mats</button>
+            <button class="filter-btn active" id="btn-craft-items" onclick="toggleCraftItems()"
+                title="When active, the base item can be sourced via crafting if cheaper than market">Craft
+                Items</button>
+            <button class="filter-btn active" id="btn-craft-subs" onclick="toggleCraftSubcomponents()"
+                title="When active, crafting ingredients are priced as min(market, craft cost)">Craft Mats</button>
         </div>
 
         <table id="results">
@@ -2034,16 +2037,15 @@
                 <tr>
                     <th onclick="sortTable(0, 'str')">Item<span class="sort-arrow">&#9650;</span></th>
                     <th onclick="sortTable(1, 'num')">Lvl<span class="sort-arrow">&#9650;</span></th>
-                    <th onclick="sortTable(2, 'num')" class="number header-tip"
-                        data-tip="Time since bid price changed">Age<span class="tooltip-icon">?</span><span
-                            class="sort-arrow">&#9650;</span></th>
+                    <th onclick="sortTable(2, 'num')" class="number header-tip" data-tip="Time since bid price changed">
+                        Age<span class="tooltip-icon">?</span><span class="sort-arrow">&#9650;</span></th>
                     <th onclick="sortTable(3, 'num')" class="number">Base Cost<span class="sort-arrow">&#9650;</span>
                     </th>
                     <th onclick="sortTable(4, 'num')" class="number hide-mobile col-center">Enhance Cost<span
                             class="sort-arrow">&#9650;</span></th>
                     <th onclick="sortTable(5, 'num')" class="number col-center header-tip"
-                        data-tip="Expected sell price (and 24hr average price)">Sell Price<span class="tooltip-icon">?</span><span
-                            class="sort-arrow">&#9650;</span></th>
+                        data-tip="Expected sell price (and 24hr average price)">Sell Price<span
+                            class="tooltip-icon">?</span><span class="sort-arrow">&#9650;</span></th>
                     <th onclick="sortTable(6, 'num')" class="number col-center">Vol (24h)<span
                             class="sort-arrow">&#9650;</span></th>
                     <th onclick="sortTable(7, 'num')" class="number col-center">Profit<span
