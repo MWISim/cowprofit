@@ -1333,8 +1333,8 @@ function computeSessionDisplay(session, finalLevelOverride) {
         adjustedProtCost = adjustedProtsUsed * (enhanceProfit.protPrice || 0);
     }
 
-    // Calculate fee (2%) and profit
-    const fee = Math.floor(salePrice * 0.02);
+    // Calculate fee (5%) and profit
+    const fee = Math.floor(salePrice * 0.05);
     const netSale = salePrice - fee;
     const failureCost = enhanceProfit.totalMatCost + adjustedProtCost + totalTeaCost;
 
@@ -2474,8 +2474,8 @@ function calculateEnhanceSessionProfit(session) {
     const estimatedSaleSourceIcon = pb.estimatedSale.sourceIcon;
     const estimatedSaleLevel = pb.estimatedSale.level;
 
-    // Fee is 2% of sale price (will be recalculated with actual sale in render)
-    const fee = Math.floor(revenue * 0.02);
+    // Fee is 5% of sale price (will be recalculated with actual sale in render)
+    const fee = Math.floor(revenue * 0.05);
     const netSale = revenue - fee;
     const profit = netSale - totalCost;
 
@@ -3894,7 +3894,7 @@ function renderTable() {
         const sp = r.sellPrices?.[sellMode];
         const sellPrice = sp ? sp.price : 0;
         const profit = sellPrice - r.totalCost;
-        const marketFee = sellPrice * 0.02;
+        const marketFee = sellPrice * 0.05;
         const profitAfterFee = profit - marketFee;
         const roi = r.matCost > 0 ? (profit / r.matCost) * 100 : 0;
         const roiAfterFee = r.matCost > 0 ? (profitAfterFee / r.matCost) * 100 : 0;
